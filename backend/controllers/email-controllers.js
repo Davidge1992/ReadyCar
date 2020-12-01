@@ -12,7 +12,6 @@ const transport = nodemailer.createTransport(sendgridTransport({
     }
 }))
 
-//Send invoice by checkout
 const sendInvoiceEmail = async ( req, res ) => {
 
     const { orderId } = req.body
@@ -54,7 +53,7 @@ const sendInvoiceEmail = async ( req, res ) => {
 const resetPassword = async ( req, res ) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
-        return res.status(422).json({ msg: 'Invalid input, please check your data' });
+        return res.status(422).json({ msg: 'Ingreso Invalido' });
     }
     
     //Generate token
@@ -71,7 +70,7 @@ const resetPassword = async ( req, res ) => {
         user = await User.findOne({email: req.body.email});
     }catch(err){
         console.log(err);
-        res.status(500).send({msg: 'Server Error, could not find a user with that email'});
+        res.status(500).send({msg: 'Error, el no existe'});
     };
 };
 

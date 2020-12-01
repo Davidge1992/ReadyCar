@@ -28,7 +28,6 @@ const DetailRentPage = (props) => {
                   .from(line, 2, { width: 0 }, 0.5)
     }, []);
 
-     //Fetch single car element
      useEffect(() => {
         setIsLoading(true)
         axios.get(`/fleet/${carId}`)
@@ -41,7 +40,6 @@ const DetailRentPage = (props) => {
             });
      }, [carId]);
     
-     //Make an order
      const onOrderHandler = useCallback((order) => {
         setIsLoading(true);
         axios.post('/orders', order, 

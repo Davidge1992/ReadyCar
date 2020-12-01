@@ -1,4 +1,3 @@
-//Day-time helper
 const timeOfDay = () => {
 
     const date = new Date();

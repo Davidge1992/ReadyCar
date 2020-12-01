@@ -2,7 +2,6 @@ const { validationResult } = require('express-validator');
 
 const Car = require('../models/car');
 
-//Create a car entry
 const postCar = async ( req, res ) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
@@ -31,8 +30,6 @@ const postCar = async ( req, res ) => {
     };
 };
 
-
-//Get all cars 
 const getAllCars = async ( req, res ) => {
     let cars;
     try{
@@ -44,7 +41,6 @@ const getAllCars = async ( req, res ) => {
     res.json({ cars: cars.map(car => car.toObject({ getters: true })) });
 };
 
-//Get single car by ID
 const getCarById = async ( req, res ) => {
 
     let carById;
@@ -61,7 +57,6 @@ const getCarById = async ( req, res ) => {
     res.json({car: carById.toObject({ getters: true}) });
 };
 
-//Get 3 cars with lower price for Landing page
 const getOfferCars = async ( req, res ) => {
     
     let offerCars;
@@ -75,8 +70,6 @@ const getOfferCars = async ( req, res ) => {
     res.json({ cars: offerCars.map(car => car.toObject({ getters: true })) });
 }
 
-
-//Get car list by searched name,model or car type
 const getCarByName = async ( req, res ) => {
 
     let cars

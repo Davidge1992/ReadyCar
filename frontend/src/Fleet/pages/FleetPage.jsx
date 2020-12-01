@@ -47,7 +47,6 @@ const FleetPage = () => {
                   .from(line, 2, { width: 0 }, 0.5)
     }, []);
 
-    //Fetch all cars from db
     useEffect(() => {
         setIsLoading(true)
         axios.get('/fleet')
@@ -60,7 +59,6 @@ const FleetPage = () => {
              })
     }, []);
 
-    //Search for different results 
     const onSubmitNameHandler = useCallback((name) => {
         setIsLoading(true)
         axios.get(`/fleet/sort/${name}`)

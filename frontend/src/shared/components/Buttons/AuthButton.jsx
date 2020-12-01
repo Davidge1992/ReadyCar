@@ -8,10 +8,10 @@ const AuthButton = (props) => {
 
     useEffect(() => {
         tl.current = gsap.timeline({ repeat: 20, repeatDelay: 0.4 })
-                tl.current.to(authInput, 0.3, { value: 'connecting'})
-                tl.current.to(authInput, 0.3, { value: 'connecting .'})
-                tl.current.to(authInput, 0.3, { value: 'connecting ..'})
-                tl.current.to(authInput, 0.3, { value: 'connecting ...'})
+                tl.current.to(authInput, 0.3, { value: 'Conectando'})
+                tl.current.to(authInput, 0.3, { value: 'Conectando .'})
+                tl.current.to(authInput, 0.3, { value: 'Conectando ..'})
+                tl.current.to(authInput, 0.3, { value: 'Conectando ...'})
     }, [])
 
     return(

@@ -9,7 +9,7 @@ router.post('/send/:id', emailController.sendInvoiceEmail);
 //Send reset password link by mail
 router.post('/reset',
     [
-        check('email', 'Please provide an email').isEmail().not().isEmpty().isLength({ min: 6 }).normalizeEmail()
+        check('email', 'Por favor ingrese un mail valido').isEmail().not().isEmpty().isLength({ min: 6 }).normalizeEmail()
     ], 
     emailController.resetPassword
 );

@@ -7,7 +7,6 @@ const Order = require('../models/order');
 const Car = require('../models/car');
 const User = require('../models/user');
 
-//Create new Order entry
 const addOrder = async ( req, res ) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
@@ -40,7 +39,6 @@ const addOrder = async ( req, res ) => {
         return res.status(404).json({ msg: 'NO se encontro el auto por id' });
     }
 
-    //Calculate days and a total price for that order
     const days = Math.abs(endDate.getDate() - startDate.getDate());
     const price = (days * searchedCar.price);
 
@@ -80,7 +78,6 @@ const addOrder = async ( req, res ) => {
     res.status(201).json({ order: order });
 };
 
-//Get all users order
 const getUsersOrders = async ( req, res ) => {
 
     let orderByUser
@@ -115,7 +112,6 @@ const getOrderById = async ( req, res ) => {
     res.json({order: orderById.toObject({ getters: true}) });
 };
 
-//Delete order
 const deleteOrder = async ( req, res ) => {
 
     let orederToDelete
@@ -148,7 +144,6 @@ const deleteOrder = async ( req, res ) => {
         res.status(200).json({msg: 'Orden elimidada'});
 };
 
-//Update single order price
 const updatePayOption = async ( req, res ) => {
 
     const { isPayNow } = req.body;

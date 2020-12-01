@@ -7,8 +7,8 @@ const DeleteWarning = (props) => {
             <p>Do you want to proceed and delete this order? Please note that it
             can't be undone thereafter.</p>
             <div className='delete-btns'>
-                <button className='cancel' onClick={props.cancel}>Cancel</button>
-                <button className='delete' onClick={props.delete}>Delete</button>
+                <button className='cancel' onClick={props.cancel}>Cancelar</button>
+                <button className='delete' onClick={props.delete}>Borrar</button>
             </div>
         </div>
     )

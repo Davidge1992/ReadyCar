@@ -4,12 +4,11 @@ const { check } = require('express-validator');
 const usersController = require('../controllers/users-controllers');
 const router = express.Router();
 
-//Register new user
 router.post('/register',
     [
-        check('name', 'Please provide a name').not().isEmpty().isLength({ min: 4 }).trim(),
-        check('email', 'Please provide an email').isEmail().not().isEmpty().isLength({ min: 6 }).normalizeEmail(),
-        check('password', 'Password must be at least 6 character long').isLength({ min: 6 }).trim()
+        check('name', 'Ingrese un nombre').not().isEmpty().isLength({ min: 4 }).trim(),
+        check('email', 'Ingrese un email').isEmail().not().isEmpty().isLength({ min: 6 }).normalizeEmail(),
+        check('password', 'Ingrese una contraseña de al menos 6 caracteres').isLength({ min: 6 }).trim()
     ],
     usersController.registerUser
 );
@@ -17,8 +16,8 @@ router.post('/register',
 //Login user
 router.post('/login',
     [
-        check('email', 'Please provide an email').isEmail().not().isEmpty().isLength({ min: 6 }).normalizeEmail(),
-        check('password', 'Password must be at least 6 character long').isLength({ min: 6 }).trim()
+        check('email', 'Ingrese un mail').isEmail().not().isEmpty().isLength({ min: 6 }).normalizeEmail(),
+        check('password', 'El contraseña debe tener 6 caracteres').isLength({ min: 6 }).trim()
     ],
     usersController.loginUser
 );
@@ -26,7 +25,7 @@ router.post('/login',
 //Change user's password
 router.post('/update',
     [
-        check('password', 'Password must be at least 6 character long').isLength({ min: 6 }).trim()
+        check('password', 'El contraseña debe tener 6 caracteres').isLength({ min: 6 }).trim()
     ], 
     usersController.updateUserPassword
 );

@@ -10,13 +10,13 @@ const router = express.Router();
 router.post('/',
     fileUpload.single('image'),
     [
-        check('name', 'Please enter a valid car name').not().isEmpty().trim(),
-        check('model', 'Please enter a valid car model').not().isEmpty().trim(),
-        check('carType', 'Please enter a valid car type').not().isEmpty().trim(),
-        check('seats', 'Please enter a valid number of seats').not().isEmpty().isNumeric().trim().isInt({gt: 1, lt: 8 }),
-        check('gears', 'Please enter a valid gears type').not().isEmpty().trim(),
-        check('price', 'Please enter a valid price').not().isEmpty().isNumeric().trim().isFloat({gt: 0}),
-        check('qt', 'Please enter a valid number of quantity').not().isEmpty().isNumeric().trim().isInt({gt: 0})
+        check('name', 'Ingrese un nombre valido').not().isEmpty().trim(),
+        check('model', 'Ingrese un modelo valido').not().isEmpty().trim(),
+        check('carType', 'Ingrese un tipo de vehiculo correcto').not().isEmpty().trim(),
+        check('seats', 'Ingrese número de asientos').not().isEmpty().isNumeric().trim().isInt({gt: 1, lt: 8 }),
+        check('gears', 'Mencione el tipo de manejo').not().isEmpty().trim(),
+        check('price', 'Ingreso un valor valido').not().isEmpty().isNumeric().trim().isFloat({gt: 0}),
+        check('qt', 'Ingrese una cantidad valida').not().isEmpty().isNumeric().trim().isInt({gt: 0})
     ],
     carsControllers.postCar
 );
